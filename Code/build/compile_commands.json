@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/root/CppBasic/Code/build",
+  "command": "/usr/bin/c++  -I/root/CppBasic/Code/include -g -o CMakeFiles/CppBasic.dir/main.cpp.o -c /root/CppBasic/Code/main.cpp",
+  "file": "/root/CppBasic/Code/main.cpp",
+  "output": "CMakeFiles/CppBasic.dir/main.cpp.o"
+},
+{
+  "directory": "/root/CppBasic/Code/build",
+  "command": "/usr/bin/c++  -I/root/CppBasic/Code/include -g -o CMakeFiles/CppBasic.dir/src/Swap.cpp.o -c /root/CppBasic/Code/src/Swap.cpp",
+  "file": "/root/CppBasic/Code/src/Swap.cpp",
+  "output": "CMakeFiles/CppBasic.dir/src/Swap.cpp.o"
+}
+]
