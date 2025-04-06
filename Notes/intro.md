@@ -419,7 +419,7 @@ make
 ```
 mkdir build
 cd build
-cmake -G "MinGw Makefiles"
+cmake -G "MinGw Makefiles" ..
 mingw32-make
 ./CppBasic.exe
 

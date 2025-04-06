@@ -8,12 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/root/CppBasic/Code/main.cpp" "CMakeFiles/CppBasic.dir/main.cpp.o" "gcc" "CMakeFiles/CppBasic.dir/main.cpp.o.d"
-  "/root/CppBasic/Code/src/Swap.cpp" "CMakeFiles/CppBasic.dir/src/Swap.cpp.o" "gcc" "CMakeFiles/CppBasic.dir/src/Swap.cpp.o.d"
+  "C:/Users/86188/Desktop/CODE/CppBasic/Code/1_main.cpp" "CMakeFiles/CppBasic.dir/1_main.cpp.obj" "gcc" "CMakeFiles/CppBasic.dir/1_main.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
 set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.
