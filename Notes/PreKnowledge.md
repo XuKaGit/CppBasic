@@ -7,7 +7,7 @@
 `预处理 --> 编译 --> 汇编 --> 链接`
 
 <div style="text-align: center;">
-    <img src="Figures/f1.png" style="width: 80%; max-width: 600px; height: auto;">
+    <img src= "C:\Users\86188\Desktop\CODE\CppBasic\Figures\f1.png" style="width: 80%; max-width: 600px; height: auto;">
 </div>
 
 - **预处理:** 只进行预处理步骤, 而不进行编译. 这意味着它会处理所有的宏定义,包含文件(#include), 以及条件编译指令(如 #ifdef), 并生成预处理后的源代码.
@@ -208,9 +208,101 @@ g++ main.cpp -Iinclude -Lsrc -lSwap -o sharemain
   - 分析崩溃程序生成的 `core` 文件
 
 
-### 2. CMake
+### 2. Cpp Head Files And Source Files
 
-#### 2.1 What is CMake?
+#### 2.1 C++文件分类
+
+- **.h**: 写类的声明(包括类里面的成员和方法的声明)、函数原型、#define常数、const常量等, 但一般来说不写出具体的实现. 而且头文件不要太大, 千行以内.
+
+- **.cpp**:  源文件主要写实现头文件中已经声明的那些函数的具体代码.
+
+- Remark: **.h**文件中一般类的**数据成员**被声明为**私有的**, 而**方法**被声明为**公有的**, 这样可以隐藏类的内部实现, 只暴露出方法接口, 提高代码的安全性.
+
+- An Example:
+
+```cpp
+// Circle.h
+#ifndef CIRCLE_H
+#define CIRCLE_H   // 预编译语句, 防止重复编译
+ 
+class Circle
+...{
+private:
+    double r;//半径
+public:
+    Circle();//构造函数
+    Circle(double R);//构造函数
+    double Area();//求面积函数
+};
+ 
+#endif
+```
+
+```cpp
+// Circle.cpp
+
+#include "Circle.h"
+ 
+Circle::Circle()
+...{
+    this->r=5.0;
+}
+ 
+Circle::Circle(double R)
+...{
+    this->r=R;
+}
+ 
+double Circle:: Area()
+...{
+    return 3.14*r*r;
+}
+
+```
+
+
+#### 2.2 C++头文件与源文件的编译
+
+
+已知:
+
+- 头文件"a.h"声明了一系列函数(仅有函数原型,没有函数实现);
+- 源文件"a.cpp"中实现了"a.h"中声明的这些函数;
+- 那么如果我想在“c.cpp”中使用“a.h”中声明的这些在“a.cpp”中实现的函数, 通常都是在"c.cpp"中使用:
+
+  ```cpp
+  #include "a.h"
+  ```
+
+
+<p>
+
+
+Question: 那么`c.cpp`是怎样找到`b.cpp`中的实现呢?
+
+- 其实 `.cpp` 和 `.h` 后缀名称没有任何直接关系, 很多编译器都可以接受其他扩展名.
+
+- 谭浩强老师的 ***C程序设计*** 一书中提到, 编译器预处理时, 要对`#include`命令进行 **"文件包含处理"**: 将文件`headfile.h`的全部内容复制到 `#include "headfile.h"` 处. 这也正说明了, 为什么很多编译器并不care到底这个文件的后缀名是什么----因为`#include预处理`就是完成了一个"复制并插入代码"的工作.
+
+
+<p>
+
+- 程序在**编译**的时候, 并不会去找`a.cpp`文件中的函数实现; 只有在**link**的时候, 才去找`a.cpp`文件中的函数实现; 我们在`a.cpp`或`c.cpp`中用` #include "a.h" `实际上是引入相关声明, 使得编译可以通过, 程序并不关心实现是在哪里, 是怎么实现的. 
+
+<p>
+
+- **编译:** 源文件编译后成生了**目标文件(.o或.obj文件)**;  目标文件中, 这些函数和变量就视作一个个符号.
+- **链接:** 在link的时候, 需要在`makefile`里面说明需要连接哪个 **.o或.obj文件**(在这里是a.cpp生成的.o或.obj文件). 此时, 连接器会去这个.o或.obj文件中找在a.cpp中实现的函数, 再把他们build到makefile中指定的那个可以执行文件中. 
+<p>
+
+
+
+通常, 编译器会在每个.o或.obj文件中都去找一下所需要的符号, 而不是只在某个文件中找或者说找到一个就不找了. 因此, 如果在几个不同文件中实现了同一个函数, 或者定义了同一个全局变量, 链接的时候就会提示 **"redefined"**.
+
+
+### 3. CMake
+
+#### 3.1 What is CMake?
 
 - **CMake:** `CMake` 是 **跨平台**的**安装编译**工具，可以用 简单的语法 描述 所有平台 的安装(编译)过程
 
@@ -227,18 +319,18 @@ g++ main.cpp -Iinclude -Lsrc -lSwap -o sharemain
   - **构建流程** : **Build Tools**(Visual Studio / Xcode / Makefile) -> **Build Commands**(msbuild / xcodebuild / make) -> **Binaries**(最终可执行文件)
 
 <div style="text-align: center;">
-    <img src= "Figures/cmakeworkflow.jpg" style="width: 80%; max-width: 600px; height: auto;">
+    <img src= "C:\Users\86188\Desktop\CODE\CppBasic\Figures\cmakeworkflow.jpg" style="width: 80%; max-width: 600px; height: auto;">
 </div>
 
 
-#### 2.2 CMake语法特点
+#### 3.2 CMake语法特点
 
 - **基本语法格式:** 指令(参数1 参数2)
   - 参数之间使用**空格**或者**分号**分开
   - 指令是**大小无关**的, 即大小写字母一样, 但是**参数**是大小写有关的
   - **变量使用`${}`取值, 但是在IF控制语句中是直接使用变量名**
 
-#### 2.3 CMake重要指令
+#### 3.3 CMake重要指令
 
 - 1 **cmake_minimum_required(指定 CMake 最小版本要求)**
 ```
@@ -325,7 +417,7 @@ add_executable(main ${SRC})
 ```
 
 
-#### 2.4 CMake常用变量
+#### 3.4 CMake常用变量
 
 - **CMAKE_C_FLAGS**: gcc 编译器选项
 - **CMAKE_CXX_FLAGS**: g++编译器选项
@@ -350,7 +442,7 @@ set( CMAKE_BUILD_TYPE Debug)
 - **LIBRARY_OUTPUT_PATH:** 指定生成库文件的输出路径.
 
 
-#### 2.5 CMake项目的编译流程
+#### 3.5 CMake项目的编译流程
 
 - CMake项目的主要目录存在一个 `CMakeLists.txt` 文件. 我们有两种方式设置编译规则:
 
@@ -365,8 +457,9 @@ set( CMAKE_BUILD_TYPE Debug)
   - 执行 `cmake PATH` 生成 `Makefile` (`PATH` 是`CMakeLists.txt` 所在的顶层目录)
   - 执行命令` make` 进行编译
 
-- CMake的两种构建方式
-  - **内部构建 (in-source build)**:**不推荐使用**. 内部构建会产生很多中间文件, 这些文件并不是我们最终想要的, 和工程源代码文件放在一起会显得杂乱无章.
+**CMake的两种构建方式**:
+
+- **内部构建 (in-source build)**:**不推荐使用**. 内部构建会产生很多中间文件, 这些文件并不是我们最终想要的, 和工程源代码文件放在一起会显得杂乱无章.
 
 ```shell
 # 内部构建示例
@@ -376,7 +469,7 @@ cmake .
 # 执行 make 命令，生成 target
 make
 ```
-  - **外部构建 (out-of-source build)**: **推荐使用**.  将编译的目录和源代码目录区分开来, 放在不同目录中
+- **外部构建 (out-of-source build)**: **推荐使用**.  将编译的目录和源代码目录区分开来, 放在不同目录中
 
 
 ```shell
@@ -394,7 +487,7 @@ make
 
 
 
-### 3. VSCode 构建完整 C++ 过程
+### 4. VSCode 构建完整 C++ 过程
 
 ```
 # 项目目录结构
