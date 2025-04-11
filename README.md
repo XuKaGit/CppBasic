@@ -1,7 +1,7 @@
 ## My C++ Learning Repository
 
 
-### 1. Prerequisites for C++ Programming
+### 1. Preknowledge for C++ Programming
 
 Notes: [PreKnowledge.md](Notes/PreKnowledge.md)
 
@@ -10,6 +10,34 @@ Notes: [PreKnowledge.md](Notes/PreKnowledge.md)
 - CMake and Makefile
 - VSCode 构建完整 C++ 项目
 
+
+### 2. C++ Basic
+
+
+- 基本数据类型
+- 运算符
+- 输入输出(I/O)
+
+### 3. C++ functons & classes
+
+- 函数重载与函数模版
+
+- 作用域
+
+
+### 4. 引用 & 指针 & 动态内存分配
+
+
+### 5. 迭代器 & 算法
+
+
+### 6. 错误检查 & 错误处理 & 异常
+
+
+### 7. Parallel Programming
+
+
+### 8. Other Topics
 
 
 

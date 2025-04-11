@@ -71,28 +71,29 @@ include CMakeFiles/CppBasic.dir/flags.make
 CMakeFiles/CppBasic.dir/codegen:
 .PHONY : CMakeFiles/CppBasic.dir/codegen
 
-CMakeFiles/CppBasic.dir/1_main.cpp.obj: CMakeFiles/CppBasic.dir/flags.make
-CMakeFiles/CppBasic.dir/1_main.cpp.obj: C:/Users/86188/Desktop/CODE/CppBasic/Code/1_main.cpp
-CMakeFiles/CppBasic.dir/1_main.cpp.obj: CMakeFiles/CppBasic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\86188\Desktop\CODE\CppBasic\Code\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CppBasic.dir/1_main.cpp.obj"
-	D:\mingw\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CppBasic.dir/1_main.cpp.obj -MF CMakeFiles\CppBasic.dir\1_main.cpp.obj.d -o CMakeFiles\CppBasic.dir\1_main.cpp.obj -c C:\Users\86188\Desktop\CODE\CppBasic\Code\1_main.cpp
+CMakeFiles/CppBasic.dir/main.cpp.obj: CMakeFiles/CppBasic.dir/flags.make
+CMakeFiles/CppBasic.dir/main.cpp.obj: CMakeFiles/CppBasic.dir/includes_CXX.rsp
+CMakeFiles/CppBasic.dir/main.cpp.obj: C:/Users/86188/Desktop/CODE/CppBasic/Code/main.cpp
+CMakeFiles/CppBasic.dir/main.cpp.obj: CMakeFiles/CppBasic.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\86188\Desktop\CODE\CppBasic\Code\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CppBasic.dir/main.cpp.obj"
+	D:\mingw\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CppBasic.dir/main.cpp.obj -MF CMakeFiles\CppBasic.dir\main.cpp.obj.d -o CMakeFiles\CppBasic.dir\main.cpp.obj -c C:\Users\86188\Desktop\CODE\CppBasic\Code\main.cpp
 
-CMakeFiles/CppBasic.dir/1_main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CppBasic.dir/1_main.cpp.i"
-	D:\mingw\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\86188\Desktop\CODE\CppBasic\Code\1_main.cpp > CMakeFiles\CppBasic.dir\1_main.cpp.i
+CMakeFiles/CppBasic.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CppBasic.dir/main.cpp.i"
+	D:\mingw\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\86188\Desktop\CODE\CppBasic\Code\main.cpp > CMakeFiles\CppBasic.dir\main.cpp.i
 
-CMakeFiles/CppBasic.dir/1_main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CppBasic.dir/1_main.cpp.s"
-	D:\mingw\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\86188\Desktop\CODE\CppBasic\Code\1_main.cpp -o CMakeFiles\CppBasic.dir\1_main.cpp.s
+CMakeFiles/CppBasic.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CppBasic.dir/main.cpp.s"
+	D:\mingw\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\86188\Desktop\CODE\CppBasic\Code\main.cpp -o CMakeFiles\CppBasic.dir\main.cpp.s
 
 # Object files for target CppBasic
 CppBasic_OBJECTS = \
-"CMakeFiles/CppBasic.dir/1_main.cpp.obj"
+"CMakeFiles/CppBasic.dir/main.cpp.obj"
 
 # External object files for target CppBasic
 CppBasic_EXTERNAL_OBJECTS =
 
-CppBasic.exe: CMakeFiles/CppBasic.dir/1_main.cpp.obj
+CppBasic.exe: CMakeFiles/CppBasic.dir/main.cpp.obj
 CppBasic.exe: CMakeFiles/CppBasic.dir/build.make
 CppBasic.exe: CMakeFiles/CppBasic.dir/linkLibs.rsp
 CppBasic.exe: CMakeFiles/CppBasic.dir/objects1.rsp
